@@ -1,0 +1,18 @@
+[
+    {
+        "points_remaining": 100,
+        "final_equation_string": "y = 0.62x + 13.45",
+        "intercept": 13.45410043883739,
+        "coefficient_pedestrian_count": 0.6175521084721691,
+        "rmse": 1.52159876666895,
+        "r2_score": 0.922337710806842
+    },
+    {
+        "points_remaining": 100,
+        "final_equation_string": "y = 0.51x + 15.64",
+        "intercept": 15.636556322620335,
+        "coefficient_pedestrian_count": 0.5075296606429907,
+        "rmse": 1.5194192377637739,
+        "r2_score": 0.8944085577958456
+    }
+]

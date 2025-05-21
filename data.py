@@ -69,7 +69,7 @@ models = []  # 儲存每次迭代的模型
 removed_points = []  # 儲存被移除的點
 
 print("\nIterative outlier removal process:")
-print("Iteration | Points | RMSE  | R² Score | Equation")
+print("Iteration | Points | RMSE  | R2 Score | Equation")
 print("-" * 60)
 
 for i in range(num_iterations + 1):
@@ -118,7 +118,7 @@ print("\nFinal model after removing outliers:")
 print(f"Points remaining: {len(final_data)}")
 print(f"Final equation: {models[-1]['equation']}")
 print(f"RMSE: {models[-1]['rmse']:.2f}")
-print(f"R² Score: {models[-1]['r2']:.2f}")
+print(f"R2 Score: {models[-1]['r2']:.2f}")
 
 # 用於預測和視覺化的模型
 model = final_model
@@ -221,6 +221,25 @@ try:
     print(f"Number of data points remaining: {len(final_data)}")
 except Exception as e:
     print(f"An error occurred while saving the updated data: {e}")
+
+# --- 9. Save Final Results to JSON ---
+print(f"\n--- Saving Final Results to JSON ---")
+results_to_save = {
+    "points_remaining": len(final_data),
+    "final_equation_string": models[-1]['equation'],
+    "intercept": float(final_model.intercept_),
+    "coefficient_pedestrian_count": float(final_model.coef_[0]),
+    "rmse": float(models[-1]['rmse']),
+    "r2_score": float(models[-1]['r2'])
+}
+
+output_json_filename = '_latest_data_run_output.json'
+try:
+    with open(output_json_filename, 'w', encoding='utf-8') as f:
+        json.dump(results_to_save, f, ensure_ascii=False, indent=4)
+    print(f"Final results saved successfully to {output_json_filename}.")
+except Exception as e:
+    print(f"An error occurred while saving the results to JSON: {e}")
 
 print("Program execution completed. Charts saved as:")
 print("- pedestrian_crossing_regression_iterations.png (Regression lines evolution)")

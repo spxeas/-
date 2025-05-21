@@ -4,7 +4,7 @@ import time
 
 # --- Data Generation Function ---
 def generate_pedestrian_crossing_data(
-    num_samples: int = 150,
+    num_samples: int = 200,
     min_pedestrians: int = 10,
     max_pedestrians: int = 40,
     road_width: float = 10.0,  # 固定路寬為10公尺
