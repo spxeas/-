@@ -211,7 +211,7 @@ plt.title('Distribution of Green Light Time by Pedestrian Count (After Outlier R
 plt.grid(True)
 plt.savefig('pedestrian_crossing_boxplot_final.png')
 
-plt.show()
+# plt.show() # 註解掉此行，使圖片不顯示
 
 # --- 8. Save Updated Data ---
 print(f"\n--- Saving Updated Data to {file_name} ---")
